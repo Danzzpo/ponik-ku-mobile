@@ -1,7 +1,7 @@
 <template>
-  <div class="w-full h-screen md:w-[360px] md:h-[800px] bg-white md:rounded-[30px] shadow-2xl relative overflow-hidden ring-0 md:ring-8 ring-black mx-auto font-sans flex flex-col">
+  <div class="w-full h-full md:w-[360px] md:h-[800px] bg-white md:rounded-[30px] shadow-2xl relative overflow-hidden ring-0 md:ring-8 ring-black mx-auto font-sans">
     
-    <div class="w-full h-[268px] relative shrink-0">
+    <div class="absolute top-0 left-0 right-0 h-[268px] z-10 bg-white">
       
       <button 
         @click="$emit('change-screen', 'welcome')" 
@@ -27,7 +27,7 @@
 
     </div>
 
-    <div class="w-full flex-1 bg-[#17941F] rounded-tl-[81px] rounded-tr-[0px] md:rounded-bl-[20px] md:rounded-br-[20px] shadow-[0_-10px_40px_rgba(0,0,0,0.1)] flex flex-col items-center pt-[80px] px-8 space-y-6 overflow-y-auto scrollbar-hide">
+    <div class="absolute top-[268px] bottom-0 left-0 right-0 bg-[#17941F] rounded-tl-[81px] rounded-none md:rounded-bl-[20px] md:rounded-br-[20px] shadow-[0_-10px_40px_rgba(0,0,0,0.1)] flex flex-col items-center overflow-y-auto scrollbar-hide pt-[80px] px-8 space-y-6">
       
       <div class="w-full h-[45px] bg-white rounded-[20px] flex items-center px-4 shadow-sm shrink-0">
         <input 
@@ -84,7 +84,7 @@ const handleLogin = () => {
 </script>
 
 <style scoped>
-/* Sembunyikan scrollbar tapi tetap bisa scroll */
+/* Hilangkan scrollbar */
 .scrollbar-hide::-webkit-scrollbar {
     display: none;
 }

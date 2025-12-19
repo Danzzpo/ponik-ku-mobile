@@ -15,22 +15,28 @@
         class="absolute inset-0 z-10" 
       />
 
-      <Transition name="slide-left">
+      <Transition name="slide-side">
         <LoginScreen 
           v-if="screen === 'login'" 
           @change-screen="changeScreen" 
-          class="absolute inset-0 z-20" 
+          class="absolute inset-0 z-20 bg-white" 
         />
       </Transition>
 
-      <Transition name="slide-left">
-        <div v-if="screen === 'register'" class="absolute inset-0 z-20 w-full h-full bg-white flex flex-col justify-center items-center">
-            <button @click="screen = 'welcome'" class="absolute top-10 left-6 p-2 hover:bg-gray-100 rounded-full transition">
-              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m12 19-7-7 7-7"/><path d="M19 12H5"/></svg>
-            </button>
-            <h1 class="text-2xl font-bold text-green-700">Halaman Register</h1>
-            <p class="text-gray-500 mt-2">Masih dalam pengembangan</p>
-        </div>
+      <Transition name="slide-side">
+        <RegisterScreen 
+          v-if="screen === 'register'" 
+          @change-screen="changeScreen" 
+          class="absolute inset-0 z-20 bg-white"
+        />
+      </Transition>
+
+      <Transition name="slide-side">
+        <VerificationScreen 
+          v-if="screen === 'verification'" 
+          @change-screen="changeScreen" 
+          class="absolute inset-0 z-20 bg-white"
+        />
       </Transition>
 
     </div>
@@ -42,38 +48,44 @@ import { ref } from 'vue';
 import SplashScreen from './components/SplashScreen.vue'; 
 import WelcomeScreen from './components/WelcomeScreen.vue';
 import LoginScreen from './components/LoginScreen.vue';
-
+import RegisterScreen from './components/RegisterScreen.vue';
+import VerificationScreen from './components/VerificationScreen.vue'; // Import komponen baru
 const screen = ref('splash');
 
+// Fungsi ganti layar sederhana
 const changeScreen = (targetScreen) => {
   screen.value = targetScreen;
 };
 </script>
 
 <style>
-/* ANIMASI SLIDE DARI KIRI (CLEAN)
-   Tidak ada efek zoom/scale, murni geser.
-*/
+/* ========================================= */
+/* ANIMASI SERAGAM (Slide Side)              */
+/* Semua halaman masuk dari KIRI ke KANAN    */
+/* ========================================= */
 
-.slide-left-enter-active,
-.slide-left-leave-active {
-  /* Durasi 0.5 detik dengan kurva halus */
+.slide-side-enter-active,
+.slide-side-leave-active {
+  /* Durasi 0.5 detik, gerakan luwes (cubic-bezier) */
   transition: transform 0.5s cubic-bezier(0.25, 1, 0.5, 1);
 }
 
-/* POSISI AWAL MASUK (Dari Kiri Luar Layar) */
-.slide-left-enter-from {
+/* SAAT MASUK: */
+/* Mulai dari luar layar sebelah KIRI (-100%) */
+.slide-side-enter-from {
   transform: translateX(-100%);
+  z-index: 30; /* Pastikan dia menimpa halaman Welcome */
 }
 
-/* POSISI AKHIR (Normal di Tengah) */
-.slide-left-enter-to {
+/* Berakhir di TENGAH (0) */
+.slide-side-enter-to {
   transform: translateX(0);
 }
 
-/* SAAT KELUAR (Geser Balik ke Kiri) */
-.slide-left-leave-to {
+/* SAAT KELUAR (TOMBOL BACK): */
+/* Balik lagi ke KIRI (-100%) */
+.slide-side-leave-to {
   transform: translateX(-100%);
-  z-index: 30; /* Tetap di atas saat keluar */
+  z-index: 30;
 }
 </style>
