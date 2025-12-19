@@ -51,6 +51,14 @@
         class="absolute inset-0 z-20 bg-white"
       />
       </transition>
+      
+      <Transition name="slide-side">
+        <PaymentScreen 
+          v-if="screen === 'payment'" 
+          @change-screen="changeScreen" 
+          class="absolute inset-0 z-30 bg-white" 
+        />
+      </Transition>
     </div>
 </div>
 </template>
@@ -66,6 +74,7 @@ import VerificationScreen from './components/VerificationScreen.vue';
 import HomeScreen from './components/HomeScreen.vue'; 
 import SetSensorScreen from './components/SetSensorScreen.vue';
 import DashboardScreen from './components/DashboardScreen.vue';
+import PaymentScreen from './components/PaymentScreen.vue';
 const screen = ref('splash');
 
 // Fungsi ganti layar sederhana (Langsung ubah value)

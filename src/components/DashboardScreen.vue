@@ -41,13 +41,13 @@
 
         <button 
           @click="$emit('change-screen', 'set-sensor')"
-          class="w-full h-[50px] flex items-center justify-between group hover:bg-green-50/50 rounded-lg px-2 -mx-2 transition"
+          class="w-full h-[50px] flex items-center justify-between group"
         >
           <div class="flex items-center">
             <Eye :size="24" class="text-[#33363F]" />
             <span class="font-medium text-[15px] text-black ml-4">Set Sensor</span>
           </div>
-          <ChevronRight :size="24" class="text-[#7FB77E]" />
+          <ChevronRight :size="24" class="text-[#7FB77E] opacity-0 group-hover:opacity-100 transition" />
         </button>
         <div class="h-[1px] w-full bg-black/10"></div>
 
@@ -60,7 +60,10 @@
         </button>
         <div class="h-[1px] w-full bg-black/10"></div>
 
-        <button class="w-full h-[50px] flex items-center justify-between group">
+        <button 
+          @click="$emit('change-screen', 'payment')" 
+          class="w-full h-[50px] flex items-center justify-between group"
+        >
           <div class="flex items-center">
             <CreditCard :size="24" class="text-[#33363F]" />
             <span class="font-medium text-[15px] text-black ml-4">Payment & Subscription</span>
