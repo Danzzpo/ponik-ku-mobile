@@ -59,6 +59,27 @@
           class="absolute inset-0 z-30 bg-white" 
         />
       </Transition>
+      <Transition name="fade">
+        <InfoScreen 
+          v-if="screen === 'info'" 
+          @change-screen="changeScreen" 
+          class="absolute inset-0 z-20 bg-white" 
+        />
+      </Transition>
+      <transition name="fade">
+        <InfoDetailScreen 
+          v-if="screen === 'info-detail'" 
+          @change-screen="changeScreen" 
+          class="absolute inset-0 z-30 bg-white" 
+        />
+      </transition>
+      <transition name="slide-side">
+        <CalculatorScreen 
+          v-if="screen === 'calculator'" 
+          @change-screen="changeScreen" 
+          class="absolute inset-0 z-20 bg-white" 
+        />
+      </transition>
     </div>
 </div>
 </template>
@@ -75,6 +96,9 @@ import HomeScreen from './components/HomeScreen.vue';
 import SetSensorScreen from './components/SetSensorScreen.vue';
 import DashboardScreen from './components/DashboardScreen.vue';
 import PaymentScreen from './components/PaymentScreen.vue';
+import InfoScreen from './components/InfoScreen.vue';
+import InfoDetailScreen from './components/InfoDetailScreen.vue';
+import CalculatorScreen from './components/CalculatorScreen.vue';
 const screen = ref('splash');
 
 // Fungsi ganti layar sederhana (Langsung ubah value)

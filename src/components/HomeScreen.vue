@@ -98,12 +98,15 @@
         </div>
         <span class="text-[10px] font-bold text-black">Home</span>
       </button>
-      <button class="flex flex-col items-center justify-center w-14 opacity-70 hover:opacity-100 transition">
+      <button 
+        @click="$emit('change-screen', 'info')" 
+        class="flex flex-col items-center justify-center w-14 opacity-70 hover:opacity-100 transition"
+      >
         <div class="p-1.5 mb-0.5">
            <FileText :size="20" color="white" />
         </div>
         <span class="text-[10px] font-semibold text-white">Info</span>
-      </button>
+      </button> 
       <button 
         @click="$emit('change-screen', 'set-sensor')"
         class="flex flex-col items-center justify-center w-14 opacity-70 hover:opacity-100 transition"
@@ -113,7 +116,10 @@
         </div>
         <span class="text-[10px] font-semibold text-white">Add</span>
       </button>
-      <button class="flex flex-col items-center justify-center w-14 opacity-70 hover:opacity-100 transition">
+      <button 
+        @click="$emit('change-screen', 'calculator')" 
+        class="flex flex-col items-center justify-center w-14 opacity-70 hover:opacity-100 transition"
+      >
         <div class="p-1.5 mb-0.5">
            <Calculator :size="20" color="white" />
         </div>
