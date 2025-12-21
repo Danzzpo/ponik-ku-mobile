@@ -129,7 +129,6 @@
            <ChevronRight :size="24" class="text-[#7FB77E] opacity-0 group-hover:opacity-100 transition" />
         </button>
       </div>
-
     </div>
   </div>
 </template>

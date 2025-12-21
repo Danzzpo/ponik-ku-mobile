@@ -98,8 +98,8 @@
         <span class="text-[10px] font-semibold text-white">Info</span>
       </button>
 
-      <button 
-        @click="$emit('change-screen', 'set-sensor')"
+     <button 
+        @click="$emit('change-screen', 'add-device')"
         class="flex flex-col items-center justify-center w-14 opacity-70 hover:opacity-100 transition"
       >
         <div class="p-1.5 mb-0.5 relative">

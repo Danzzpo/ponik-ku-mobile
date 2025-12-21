@@ -80,6 +80,15 @@
           class="absolute inset-0 z-20 bg-white" 
         />
       </transition>
+
+      <Transition name="fade">
+        <AddDeviceScreen 
+          v-if="screen === 'add-device'" 
+          @change-screen="changeScreen" 
+          class="absolute inset-0 z-20 bg-white" 
+        />
+      </Transition>
+      
     </div>
 </div>
 </template>
@@ -99,6 +108,7 @@ import PaymentScreen from './components/PaymentScreen.vue';
 import InfoScreen from './components/InfoScreen.vue';
 import InfoDetailScreen from './components/InfoDetailScreen.vue';
 import CalculatorScreen from './components/CalculatorScreen.vue';
+import AddDeviceScreen from './components/AddDeviceScreen.vue';
 const screen = ref('splash');
 
 // Fungsi ganti layar sederhana (Langsung ubah value)
