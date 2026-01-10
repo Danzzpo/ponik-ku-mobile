@@ -48,7 +48,7 @@
       </Transition>
 
       <Transition name="slide-side">
-         <dashboard-screen 
+         <DashboardScreen 
           v-if="screen === 'dashboard'" 
           @change-screen="changeScreen" 
           class="absolute inset-0 z-20 bg-white"
@@ -96,11 +96,12 @@
       </Transition>
       
     </div>
-</div>
+  </div>
 </template>
 
 <script setup>
 import { ref } from 'vue';
+
 // Import Semua Component
 import SplashScreen from './components/SplashScreen.vue'; 
 import WelcomeScreen from './components/WelcomeScreen.vue';
@@ -124,5 +125,27 @@ const changeScreen = (targetScreen) => {
 </script>
 
 <style>
-/* TIDAK ADA CSS ANIMASI SAMA SEKALI */
+/* Animasi Transisi */
+.slide-side-enter-active,
+.slide-side-leave-active {
+  transition: transform 0.3s ease;
+}
+
+.slide-side-enter-from {
+  transform: translateX(100%);
+}
+
+.slide-side-leave-to {
+  transform: translateX(-100%);
+}
+
+.fade-enter-active,
+.fade-leave-active {
+  transition: opacity 0.3s ease;
+}
+
+.fade-enter-from,
+.fade-leave-to {
+  opacity: 0;
+}
 </style>
