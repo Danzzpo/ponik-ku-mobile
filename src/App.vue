@@ -1,6 +1,7 @@
 <template>
-  <div class="min-h-screen bg-gray-50 flex justify-center items-center font-sans p-4 overflow-hidden">
-    <div class="relative w-[360px] h-[800px] bg-white rounded-[30px] shadow-2xl ring-8 ring-black overflow-hidden isolate">
+  <div class="min-h-screen bg-gray-50 flex justify-center items-center font-sans p-0 md:p-4 overflow-hidden">
+    
+    <div class="relative w-full h-full md:w-[360px] md:h-[800px] bg-white md:rounded-[30px] shadow-none md:shadow-2xl ring-0 md:ring-8 ring-black overflow-hidden isolate">
       
       <SplashScreen 
         v-if="screen === 'splash'" 
@@ -38,19 +39,21 @@
         class="absolute inset-0 z-20 bg-white" 
       />
 
-      <Transition name="slide-side"></Transition>
-      <SetSensorScreen 
-        v-if="screen === 'set-sensor'" 
-        @change-screen="changeScreen" 
-        class="absolute inset-0 z-20 bg-white"
-      />
-      <transition name="slide-side">
+      <Transition name="slide-side">
+        <SetSensorScreen 
+          v-if="screen === 'set-sensor'" 
+          @change-screen="changeScreen" 
+          class="absolute inset-0 z-20 bg-white"
+        />
+      </Transition>
+
+      <Transition name="slide-side">
          <dashboard-screen 
-        v-if="screen === 'dashboard'" 
-        @change-screen="changeScreen" 
-        class="absolute inset-0 z-20 bg-white"
-      />
-      </transition>
+          v-if="screen === 'dashboard'" 
+          @change-screen="changeScreen" 
+          class="absolute inset-0 z-20 bg-white"
+        />
+      </Transition>
       
       <Transition name="slide-side">
         <PaymentScreen 
@@ -59,6 +62,7 @@
           class="absolute inset-0 z-30 bg-white" 
         />
       </Transition>
+
       <Transition name="fade">
         <InfoScreen 
           v-if="screen === 'info'" 
@@ -66,20 +70,22 @@
           class="absolute inset-0 z-20 bg-white" 
         />
       </Transition>
-      <transition name="fade">
+
+      <Transition name="fade">
         <InfoDetailScreen 
           v-if="screen === 'info-detail'" 
           @change-screen="changeScreen" 
           class="absolute inset-0 z-30 bg-white" 
         />
-      </transition>
-      <transition name="slide-side">
+      </Transition>
+
+      <Transition name="slide-side">
         <CalculatorScreen 
           v-if="screen === 'calculator'" 
           @change-screen="changeScreen" 
           class="absolute inset-0 z-20 bg-white" 
         />
-      </transition>
+      </Transition>
 
       <Transition name="fade">
         <AddDeviceScreen 
@@ -109,9 +115,9 @@ import InfoScreen from './components/InfoScreen.vue';
 import InfoDetailScreen from './components/InfoDetailScreen.vue';
 import CalculatorScreen from './components/CalculatorScreen.vue';
 import AddDeviceScreen from './components/AddDeviceScreen.vue';
+
 const screen = ref('splash');
 
-// Fungsi ganti layar sederhana (Langsung ubah value)
 const changeScreen = (targetScreen) => {
   screen.value = targetScreen;
 };
@@ -119,5 +125,4 @@ const changeScreen = (targetScreen) => {
 
 <style>
 /* TIDAK ADA CSS ANIMASI SAMA SEKALI */
-/* Layar akan berganti instan */
 </style>

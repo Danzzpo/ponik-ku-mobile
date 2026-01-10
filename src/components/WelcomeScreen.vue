@@ -1,23 +1,44 @@
 <template>
-  <div class="w-[360px] h-[800px] bg-white rounded-[20px] shadow-2xl relative overflow-hidden ring-8 ring-black rounded-[30px] mx-auto">
+  <div class="w-full h-full bg-white relative overflow-hidden font-sans">
     
-    <img src="/logo.png" alt="Logo" class="absolute left-[115px] top-[174px] w-[130px] h-[185px] object-contain" />
+    <img 
+      src="/logo.png" 
+      alt="Logo" 
+      class="absolute left-1/2 top-[20%] -translate-x-1/2 w-[140px] h-auto object-contain drop-shadow-lg" 
+    />
 
-    <div class="absolute left-0 top-[450px] w-[360px] h-[350px] bg-[#17941F] rounded-tl-[58px] rounded-bl-[20px] rounded-br-[20px] shadow-[2px_2px_20px_rgba(0,0,0,0.25)]">
+    <div class="absolute left-0 bottom-0 w-full h-[400px] bg-[#17941F] rounded-tl-[60px] rounded-tr-none shadow-[0_-10px_30px_rgba(0,0,0,0.15)]">
       
-      <h1 class="absolute left-[25px] top-[50px] font-medium text-[32px] leading-[38px] text-white">Selamat Datang</h1>
+      <h1 class="absolute left-[30px] top-[50px] font-bold text-[32px] leading-[1.2] text-white">
+        Selamat Datang
+      </h1>
       
-      <p class="absolute left-[26px] top-[100px] w-[300px] font-medium text-[14px] leading-[22px] text-white opacity-90">
+      <p class="absolute left-[30px] top-[100px] right-[30px] font-medium text-[14px] leading-[1.6] text-white/90">
         Wujudkan hasil panen terbaik dengan teknologi hidroponik pintar dalam genggaman Anda.
       </p>
 
-      <button @click="$emit('change-screen', 'login')" class="absolute left-[54px] top-[190px] w-[109px] h-[47px] bg-white rounded-[20px] flex items-center justify-center hover:bg-gray-100 transition active:scale-95 shadow-md">
-        <span class="font-bold text-[15px] leading-[18px] text-black">Masuk</span>
-      </button>
+      <div class="absolute top-[180px] w-full px-[30px] flex justify-between gap-4">
+        <button 
+          @click="$emit('change-screen', 'login')" 
+          class="flex-1 h-[50px] bg-white rounded-[20px] flex items-center justify-center hover:bg-gray-100 transition active:scale-95 shadow-lg text-[#17941F]"
+        >
+          <span class="font-bold text-[16px]">Masuk</span>
+        </button>
 
-      <button @click="$emit('change-screen', 'register')" class="absolute left-[179px] top-[190px] w-[109px] h-[47px] bg-white rounded-[20px] flex items-center justify-center hover:bg-gray-100 transition active:scale-95 shadow-md">
-        <span class="font-bold text-[15px] leading-[18px] text-black">Daftar</span>
-      </button>
+        <button 
+          @click="$emit('change-screen', 'register')" 
+          class="flex-1 h-[50px] bg-[#137a1a] border border-white/30 rounded-[20px] flex items-center justify-center hover:bg-[#0f6315] transition active:scale-95 shadow-lg text-white"
+        >
+          <span class="font-bold text-[16px]">Daftar</span>
+        </button>
+      </div>
+
+      <div class="absolute bottom-[40px] left-0 w-full px-[30px] text-center">
+        <p class="text-[11px] text-white/80 italic leading-tight bg-black/10 p-2 rounded-lg border border-white/10">
+          <span class="font-bold text-yellow-300">NB:</span> Karena ini hanya prototype, 
+          silakan langsung masuk menggunakan nickname dan password bebas.
+        </p>
+      </div>
 
     </div>
   </div>
