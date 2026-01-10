@@ -1,7 +1,7 @@
 <template>
-  <div class="min-h-screen bg-gray-50 flex justify-center items-center font-sans p-0 md:p-4 overflow-hidden">
+  <div class="w-full h-full bg-gray-50 overflow-hidden block md:flex md:justify-center md:items-center md:p-4">
     
-    <div class="relative w-full h-full md:w-[360px] md:h-[800px] bg-white md:rounded-[30px] shadow-none md:shadow-2xl ring-0 md:ring-8 ring-black overflow-hidden isolate">
+    <div class="fixed inset-0 w-full h-full md:relative md:w-[360px] md:h-[800px] bg-white md:rounded-[30px] shadow-none md:shadow-2xl ring-0 md:ring-8 ring-black overflow-hidden isolate z-0">
       
       <SplashScreen 
         v-if="screen === 'splash'" 
@@ -119,7 +119,6 @@ import AddDeviceScreen from './components/AddDeviceScreen.vue';
 
 const screen = ref('splash');
 
-// Fungsi ganti layar
 const changeScreen = (targetScreen) => {
   screen.value = targetScreen;
 };
