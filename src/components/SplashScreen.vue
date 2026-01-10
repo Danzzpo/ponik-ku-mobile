@@ -1,5 +1,5 @@
 <template>
-  <div class="w-full h-full bg-white relative overflow-hidden flex flex-col items-center">
+  <div class="w-full h-full bg-white dark:bg-gray-900 relative overflow-hidden flex flex-col items-center transition-colors duration-300">
     
     <Transition name="smooth-logo" appear>
       <img 
@@ -30,7 +30,7 @@ onMounted(() => {
 }
 .smooth-logo-enter-from {
   opacity: 0;
-  transform: translate(-50%, 50px) scale(0.9); /* Sesuaikan transform karena pakai translate-x-1/2 */
+  transform: translate(-50%, 50px) scale(0.9);
 }
 .smooth-logo-enter-to {
   opacity: 1;

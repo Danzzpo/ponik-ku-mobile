@@ -1,23 +1,23 @@
 <template>
-  <div class="w-full h-full bg-white relative overflow-hidden mx-auto font-sans flex flex-col">
+  <div class="w-full h-full bg-white dark:bg-gray-900 relative overflow-hidden mx-auto font-sans flex flex-col transition-colors duration-300">
     
-    <div class="w-full px-6 pt-8 pb-4 bg-white z-20 shrink-0 border-b border-gray-100">
+    <div class="w-full px-6 pt-8 pb-4 bg-white dark:bg-gray-900 z-20 shrink-0 border-b border-gray-100 dark:border-gray-800">
       <div class="flex justify-between items-center">
         <div>
-          <h1 class="font-bold text-[24px] leading-[28px] text-black">Hi, User!</h1>
+          <h1 class="font-bold text-[24px] leading-[28px] text-black dark:text-white">Hi, User!</h1>
         </div>
         
         <div class="flex items-center space-x-4">
           <button class="relative">
-             <Bell :size="24" color="black" />
-             <div class="absolute top-0 right-0 w-2 h-2 bg-red-500 rounded-full border border-white"></div>
+             <Bell :size="24" class="text-black dark:text-white" />
+             <div class="absolute top-0 right-0 w-2 h-2 bg-red-500 rounded-full border border-white dark:border-gray-900"></div>
           </button>
           
           <button 
             @click="$emit('change-screen', 'dashboard')"
-            class="w-[30px] h-[30px] bg-gray-200 rounded-full overflow-hidden border border-gray-300 hover:ring-2 hover:ring-green-500 transition flex items-center justify-center"
+            class="w-[30px] h-[30px] bg-gray-200 dark:bg-gray-700 rounded-full overflow-hidden border border-gray-300 dark:border-gray-600 hover:ring-2 hover:ring-green-500 transition flex items-center justify-center"
           >
-            <User :size="20" class="text-gray-500" />
+            <User :size="20" class="text-gray-500 dark:text-gray-300" />
           </button>
         </div>
       </div>
@@ -25,9 +25,9 @@
 
     <div class="flex-1 overflow-y-auto scrollbar-hide px-6 pb-28 relative">
       
-      <div class="w-[200px] h-[200px] mx-auto mt-6 bg-gray-100 rounded-full flex items-center justify-center relative overflow-hidden">
-        <Cpu :size="100" class="text-[#17941F]/30" />
-        </div>
+      <div class="w-[200px] h-[200px] mx-auto mt-6 bg-gray-100 dark:bg-gray-800 rounded-full flex items-center justify-center relative overflow-hidden transition-colors">
+        <Cpu :size="100" class="text-[#17941F]/30 dark:text-[#17941F]/50" />
+      </div>
 
       <div class="w-full bg-[#17941F] rounded-[10px] p-6 mt-6 shadow-md text-center">
         <p class="font-normal text-[20px] leading-[23px] text-white">
@@ -35,10 +35,10 @@
         </p>
       </div>
 
-      <div class="w-full bg-[#DBDBDB] rounded-[10px] p-5 mt-4 shadow-sm flex items-center justify-between cursor-pointer hover:bg-gray-300 transition group">
-        <span class="font-semibold text-[20px] text-black">Have no device?</span>
+      <div class="w-full bg-[#DBDBDB] dark:bg-gray-700 rounded-[10px] p-5 mt-4 shadow-sm flex items-center justify-between cursor-pointer hover:bg-gray-300 dark:hover:bg-gray-600 transition group">
+        <span class="font-semibold text-[20px] text-black dark:text-white">Have no device?</span>
         <div class="w-[50px] h-[50px] flex items-center justify-center group-hover:scale-110 transition">
-          <Smartphone :size="40" class="text-black" />
+          <Smartphone :size="40" class="text-black dark:text-white" />
         </div>
       </div>
 

@@ -1,58 +1,58 @@
 <template>
-  <div class="w-full h-full bg-white relative overflow-hidden mx-auto font-sans flex flex-col">
+  <div class="w-full h-full bg-white dark:bg-gray-900 relative overflow-hidden mx-auto font-sans flex flex-col transition-colors duration-300">
     
-    <div class="w-full px-6 pt-8 pb-4 bg-white z-20 shrink-0 border-b border-gray-100">
+    <div class="w-full px-6 pt-8 pb-4 bg-white dark:bg-gray-900 z-20 shrink-0 border-b border-gray-100 dark:border-gray-800">
       <div class="flex justify-between items-center">
         <div>
-          <h1 class="font-bold text-[24px] leading-[28px] text-black">Hi, User!</h1>
+          <h1 class="font-bold text-[24px] leading-[28px] text-black dark:text-white">Hi, User!</h1>
         </div>
         
         <div class="flex items-center space-x-4">
           <button class="relative">
-             <Bell :size="24" color="black" />
-             <div class="absolute top-0 right-0 w-2 h-2 bg-red-500 rounded-full border border-white"></div>
+             <Bell :size="24" class="text-black dark:text-white" />
+             <div class="absolute top-0 right-0 w-2 h-2 bg-red-500 rounded-full border border-white dark:border-gray-900"></div>
           </button>
           
           <button 
             @click="$emit('change-screen', 'dashboard')"
-            class="w-[30px] h-[30px] bg-gray-200 rounded-full overflow-hidden border border-gray-300 hover:ring-2 hover:ring-green-500 transition flex items-center justify-center"
+            class="w-[30px] h-[30px] bg-gray-200 dark:bg-gray-700 rounded-full overflow-hidden border border-gray-300 dark:border-gray-600 hover:ring-2 hover:ring-green-500 transition flex items-center justify-center"
           >
-            <User :size="20" class="text-gray-500" />
+            <User :size="20" class="text-gray-500 dark:text-gray-300" />
           </button>
         </div>
       </div>
     </div>
 
-    <div class="flex-1 flex items-center justify-center px-6 bg-gray-50/50">
+    <div class="flex-1 flex items-center justify-center px-6 bg-gray-50/50 dark:bg-gray-950/50">
       
-      <div class="w-[300px] bg-white rounded-[20px] shadow-[2px_2px_20px_rgba(0,0,0,0.15)] p-6 flex flex-col items-center relative">
+      <div class="w-[300px] bg-white dark:bg-gray-800 rounded-[20px] shadow-lg p-6 flex flex-col items-center relative transition-colors">
         
         <div class="w-full mb-6 relative">
-          <div class="relative w-full h-[38px] border border-black/30 rounded-[5px] flex items-center bg-white overflow-hidden">
+          <div class="relative w-full h-[38px] border border-black/30 dark:border-white/30 rounded-[5px] flex items-center bg-white dark:bg-gray-700 overflow-hidden">
             <select 
               v-model="selectedPlant" 
-              class="w-full h-full bg-transparent outline-none px-3 text-[14px] text-black appearance-none relative z-10 cursor-pointer"
+              class="w-full h-full bg-transparent outline-none px-3 text-[14px] text-black dark:text-white appearance-none relative z-10 cursor-pointer"
             >
-              <option value="" disabled selected>Choose a Plant</option>
-              <option value="Pakcoy">Pakcoy</option>
-              <option value="Selada">Selada</option>
-              <option value="Bayam">Bayam</option>
-              <option value="Kangkung">Kangkung</option>
+              <option value="" disabled selected class="text-gray-500">Choose a Plant</option>
+              <option value="Pakcoy" class="text-black">Pakcoy</option>
+              <option value="Selada" class="text-black">Selada</option>
+              <option value="Bayam" class="text-black">Bayam</option>
+              <option value="Kangkung" class="text-black">Kangkung</option>
             </select>
-            <ChevronDown :size="20" class="absolute right-2 text-gray-500 z-0" />
+            <ChevronDown :size="20" class="absolute right-2 text-gray-500 dark:text-gray-300 z-0" />
           </div>
         </div>
 
         <div class="w-full mb-6">
-          <label class="block text-center text-[15px] text-black mb-2">Water Volume</label>
-          <div class="w-full h-[41px] border border-black/30 rounded-[5px] flex items-center px-3 bg-white relative">
+          <label class="block text-center text-[15px] text-black dark:text-white mb-2">Water Volume</label>
+          <div class="w-full h-[41px] border border-black/30 dark:border-white/30 rounded-[5px] flex items-center px-3 bg-white dark:bg-gray-700 relative">
              <input 
                v-model="waterVolume" 
                type="number" 
                placeholder="0"
-               class="w-full h-full bg-transparent outline-none text-[16px] font-medium text-black pr-8 text-center"
+               class="w-full h-full bg-transparent outline-none text-[16px] font-medium text-black dark:text-white pr-8 text-center"
              />
-             <span class="absolute right-3 text-[19px] font-semibold text-black/40">L</span>
+             <span class="absolute right-3 text-[19px] font-semibold text-black/40 dark:text-white/40">L</span>
           </div>
         </div>
 
@@ -64,12 +64,12 @@
         </button>
 
         <div class="w-full flex flex-col items-center">
-          <label class="block text-center text-[15px] text-black mb-2">AB Mix Nutrition</label>
-          <div class="w-[163px] h-[41px] border border-black/30 rounded-[5px] flex items-center justify-center px-2 bg-gray-50 relative">
-             <span class="font-bold text-[18px] text-[#17941F]">
+          <label class="block text-center text-[15px] text-black dark:text-white mb-2">AB Mix Nutrition</label>
+          <div class="w-[163px] h-[41px] border border-black/30 dark:border-white/30 rounded-[5px] flex items-center justify-center px-2 bg-gray-50 dark:bg-gray-700 relative">
+             <span class="font-bold text-[18px] text-[#17941F] dark:text-green-400">
                {{ nutritionResult }}
              </span>
-             <span class="absolute right-2 text-[15px] font-semibold text-black/40">mL/L</span>
+             <span class="absolute right-2 text-[15px] font-semibold text-black/40 dark:text-white/40">mL/L</span>
           </div>
         </div>
 
@@ -129,33 +129,25 @@ import {
 
 defineEmits(['change-screen']);
 
-// STATE DATA
 const selectedPlant = ref("");
 const waterVolume = ref("");
 const nutritionResult = ref(0);
 
-// FUNGSI HITUNG SEDERHANA
 const calculateNutrition = () => {
   if (!waterVolume.value || waterVolume.value <= 0) {
     alert("Masukkan volume air yang valid!");
     return;
   }
-  
   if (!selectedPlant.value) {
     alert("Pilih tanaman terlebih dahulu!");
     return;
   }
-
-  // LOGIKA DUMMY:
-  // Rumus: Volume Air (L) * 5mL (Standar umum hidroponik 5ml A + 5ml B per liter)
-  // Anda bisa sesuaikan rumus ini nanti
   const ratio = 5; 
   nutritionResult.value = waterVolume.value * ratio;
 };
 </script>
 
 <style scoped>
-/* Agar input number tidak ada panah spin di kanan */
 input::-webkit-outer-spin-button,
 input::-webkit-inner-spin-button {
   -webkit-appearance: none;

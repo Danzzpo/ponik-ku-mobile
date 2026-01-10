@@ -1,5 +1,5 @@
 <template>
-  <div class="w-full h-full bg-white relative overflow-hidden font-sans">
+  <div class="w-full h-full bg-white dark:bg-gray-900 relative overflow-hidden font-sans transition-colors duration-300">
     
     <img 
       src="/logo.png" 
@@ -7,7 +7,7 @@
       class="absolute left-1/2 top-[20%] -translate-x-1/2 w-[140px] h-auto object-contain drop-shadow-lg" 
     />
 
-    <div class="absolute left-0 bottom-0 w-full h-[400px] bg-[#17941F] rounded-tl-[60px] rounded-tr-none shadow-[0_-10px_30px_rgba(0,0,0,0.15)]">
+    <div class="absolute left-0 bottom-0 w-full h-[400px] bg-[#17941F] rounded-tl-[60px] rounded-tr-none shadow-[0_-10px_30px_rgba(0,0,0,0.15)] dark:shadow-none">
       
       <h1 class="absolute left-[30px] top-[50px] font-bold text-[32px] leading-[1.2] text-white">
         Selamat Datang
@@ -20,14 +20,14 @@
       <div class="absolute top-[180px] w-full px-[30px] flex justify-between gap-4">
         <button 
           @click="$emit('change-screen', 'login')" 
-          class="flex-1 h-[50px] bg-white rounded-[20px] flex items-center justify-center hover:bg-gray-100 transition active:scale-95 shadow-lg text-[#17941F]"
+          class="flex-1 h-[50px] bg-gray-800 border border-white/30 rounded-[20px] flex items-center justify-center hover:bg-[#0f6315] transition active:scale-95 shadow-lg text-white"
         >
           <span class="font-bold text-[16px]">Masuk</span>
         </button>
 
         <button 
           @click="$emit('change-screen', 'register')" 
-          class="flex-1 h-[50px] bg-[#137a1a] border border-white/30 rounded-[20px] flex items-center justify-center hover:bg-[#0f6315] transition active:scale-95 shadow-lg text-white"
+          class="flex-1 h-[50px] bg-gray-800 border border-white/30 rounded-[20px] flex items-center justify-center hover:bg-[#0f6315] transition active:scale-95 shadow-lg text-white"
         >
           <span class="font-bold text-[16px]">Daftar</span>
         </button>

@@ -1,44 +1,44 @@
 <template>
-  <div class="w-full h-full bg-white relative overflow-hidden mx-auto font-sans flex flex-col">
+  <div class="w-full h-full bg-white dark:bg-gray-900 relative overflow-hidden mx-auto font-sans flex flex-col transition-colors duration-300">
     
-    <div class="w-full h-[70px] flex items-center px-4 shrink-0 border-b border-gray-200 bg-white z-20">
+    <div class="w-full h-[70px] flex items-center px-4 shrink-0 border-b border-gray-200 dark:border-gray-800 bg-white dark:bg-gray-900 z-20 transition-colors">
       <button 
         @click="$emit('change-screen', 'info')" 
-        class="p-2 -ml-2 hover:bg-gray-100 rounded-full transition"
+        class="p-2 -ml-2 hover:bg-gray-100 dark:hover:bg-gray-800 rounded-full transition"
       >
-         <ArrowLeft :size="24" color="black" />
+         <ArrowLeft :size="24" class="text-black dark:text-white" />
       </button>
-      <h1 class="font-bold text-[20px] text-black ml-4">Information</h1>
+      <h1 class="font-bold text-[20px] text-black dark:text-white ml-4">Information</h1>
     </div>
 
     <div class="flex-1 overflow-y-auto scrollbar-hide px-6 pb-24">
       
-      <div class="w-full h-[40px] bg-[#FAFAFA]/90 rounded-[10px] flex items-center px-3 mt-6 mb-8 shadow-sm border border-black/5">
+      <div class="w-full h-[40px] bg-[#FAFAFA]/90 dark:bg-gray-800 rounded-[10px] flex items-center px-3 mt-6 mb-8 shadow-sm border border-black/5 dark:border-white/10 transition-colors">
         <Search :size="18" class="text-gray-500 mr-2" />
         <input 
           type="text" 
           placeholder="Search" 
-          class="w-full bg-transparent outline-none text-[17px] text-black placeholder-blue-500/60 font-sans"
+          class="w-full bg-transparent outline-none text-[17px] text-black dark:text-white placeholder-blue-500/60 font-sans"
         />
       </div>
 
-      <div class="w-full border border-black/40 rounded-[20px] p-5 shadow-[2px_2px_12px_rgba(0,0,0,0.25)] relative mb-6">
-        <h2 class="font-bold text-[20px] text-black text-center mb-2">Pakcoy</h2>
-        <p class="font-normal text-[12px] leading-[14px] text-justify text-black">
+      <div class="w-full border border-black/40 dark:border-white/30 rounded-[20px] p-5 shadow-sm relative mb-6">
+        <h2 class="font-bold text-[20px] text-black dark:text-white text-center mb-2">Pakcoy</h2>
+        <p class="font-normal text-[12px] leading-[14px] text-justify text-black dark:text-gray-300">
           Lorem ipsum dolor sit amet consectetur adipisicing elit. Sapiente, voluptas quaerat molestiae dolorem nulla debitis? Deskripsi tentang tanaman pakcoy, kadar ph air yang bagus untuk pakcoy antara a-z, range volume air yang dibutuhkan pada penanaman tumbuhan pakcoy.
         </p>
       </div>
 
-      <div class="w-full border border-black/40 rounded-[20px] p-5 shadow-[2px_2px_12px_rgba(0,0,0,0.25)] relative mb-6">
-        <h2 class="font-bold text-[20px] text-black text-center mb-2">Plants</h2>
-        <p class="font-normal text-[12px] leading-[14px] text-justify text-black">
+      <div class="w-full border border-black/40 dark:border-white/30 rounded-[20px] p-5 shadow-sm relative mb-6">
+        <h2 class="font-bold text-[20px] text-black dark:text-white text-center mb-2">Plants</h2>
+        <p class="font-normal text-[12px] leading-[14px] text-justify text-black dark:text-gray-300">
           Lorem ipsum dolor sit amet consectetur adipisicing elit. Sapiente, voluptas quaerat molestiae dolorem nulla debitis? Deskripsi tentang tanaman pakcoy, kadar ph air yang bagus untuk pakcoy antara a-z, range volume air yang dibutuhkan pada penanaman tumbuhan pakcoy.
         </p>
       </div>
 
-      <div class="w-full border border-black/40 rounded-[20px] p-5 shadow-[2px_2px_12px_rgba(0,0,0,0.25)] relative mb-6">
-        <h2 class="font-bold text-[20px] text-black text-center mb-2">Lettuce</h2>
-        <p class="font-normal text-[12px] leading-[14px] text-justify text-black">
+      <div class="w-full border border-black/40 dark:border-white/30 rounded-[20px] p-5 shadow-sm relative mb-6">
+        <h2 class="font-bold text-[20px] text-black dark:text-white text-center mb-2">Lettuce</h2>
+        <p class="font-normal text-[12px] leading-[14px] text-justify text-black dark:text-gray-300">
           Lorem ipsum dolor sit amet consectetur adipisicing elit. Sapiente, voluptas quaerat molestiae dolorem nulla debitis? Deskripsi tentang tanaman selada, kebutuhan sinar matahari dan nutrisi yang tepat.
         </p>
       </div>
@@ -74,7 +74,9 @@
         <span class="text-[10px] font-semibold text-white">Add</span>
       </button>
 
-      <button class="flex flex-col items-center justify-center w-14 opacity-70 hover:opacity-100 transition">
+      <button 
+        @click="$emit('change-screen', 'calculator')"
+        class="flex flex-col items-center justify-center w-14 opacity-70 hover:opacity-100 transition">
         <div class="p-1.5 mb-0.5">
            <Calculator :size="20" color="white" />
         </div>
