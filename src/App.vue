@@ -101,7 +101,6 @@
 
 <script setup>
 import { ref } from 'vue';
-
 // Import Semua Component
 import SplashScreen from './components/SplashScreen.vue'; 
 import WelcomeScreen from './components/WelcomeScreen.vue';
@@ -119,13 +118,14 @@ import AddDeviceScreen from './components/AddDeviceScreen.vue';
 
 const screen = ref('splash');
 
+// Fungsi ganti layar sederhana (Langsung ubah value)
 const changeScreen = (targetScreen) => {
   screen.value = targetScreen;
 };
 </script>
 
 <style>
-/* Animasi Transisi */
+/* TRANSISI HALUS */
 .slide-side-enter-active,
 .slide-side-leave-active {
   transition: transform 0.3s ease;
